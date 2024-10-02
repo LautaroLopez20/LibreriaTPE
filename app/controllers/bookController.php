@@ -24,6 +24,14 @@ class bookController {
         return $this->view->showInfo($info);
     }
 
+    public function showBooksById($id) {
+        // obtengo las tareas de la DB
+        $books = $this->model->getBooksById($id);
+
+        // mando las tareas a la vista
+        return $this->view->showBooks($books);
+    }
+
     public function addTask() {
         if (!isset($_POST['title']) || empty($_POST['title'])) {
             return $this->view->showError('Falta completar el título');
