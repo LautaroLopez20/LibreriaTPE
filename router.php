@@ -1,15 +1,10 @@
 <?php
-require_once 'libs/response.php';
-require_once 'app/middlewares/session.auth.middleware.php';
-require_once 'app/controllers/task.controller.php';
-require_once 'app/controllers/auth.controller.php';
+require_once 'app/controllers/authorController.php';
 
 // base_url para redirecciones y base tag
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
-$res = new Response();
-
-$action = 'listar'; // accion por defecto si no se envia ninguna
+$action = 'listarAutores'; // accion por defecto si no se envia ninguna
 if (!empty( $_GET['action'])) {
     $action = $_GET['action'];
 }
@@ -36,13 +31,11 @@ switch ($params[0]) {
         $controller = new TaskController($res);
         $controller->addTask();
         break;
-    case 'eliminar':
-        sessionAuthMiddleware($res);
-        $controller = new TaskController($res);
-        $controller->deleteTask($params[1]);
+    case 'listarAutores':
+        $controller = new authorController();
+        $controller->authorList();
         break;
     case 'finalizar':
-        sessionAuthMiddleware($res);
         $controller = new TaskController($res);
         $controller->finishTask($params[1]);
         break;
