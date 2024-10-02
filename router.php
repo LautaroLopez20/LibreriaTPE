@@ -1,6 +1,6 @@
 <?php
+require_once 'app/controllers/authorController.php';
 require_once 'app/controllers/bookController.php';
-
 
 // base_url para redirecciones y base tag
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -31,11 +31,11 @@ switch ($params[0]) {
         $controller = new bookController($res);
         $controller->addTask();
         break;
-    /*case 'eliminar':
-        $controller = new TaskController($res);
-        $controller->deleteTask($params[1]);
+    case 'listarAutores':
+        $controller = new authorController();
+        $controller->authorList();
         break;
-    case 'finalizar':
+   /* case 'finalizar':
         $controller = new TaskController($res);
         $controller->finishTask($params[1]);
         break;
