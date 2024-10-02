@@ -1,15 +1,12 @@
 <?php
-require_once 'libs/response.php';
-require_once 'app/middlewares/session.auth.middleware.php';
-require_once 'app/controllers/task.controller.php';
-require_once 'app/controllers/auth.controller.php';
+require_once 'app/controllers/bookController.php';
+
 
 // base_url para redirecciones y base tag
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
-$res = new Response();
 
-$action = 'listar'; // accion por defecto si no se envia ninguna
+$action = 'home'; // accion por defecto si no se envia ninguna
 if (!empty( $_GET['action'])) {
     $action = $_GET['action'];
 }
@@ -26,23 +23,19 @@ if (!empty( $_GET['action'])) {
 $params = explode('/', $action);
 
 switch ($params[0]) {
-    case 'listar':
-        sessionAuthMiddleware($res); // Verifica que el usuario esté logueado y setea $res->user o redirige a login
-        $controller = new TaskController($res);
-        $controller->showTasks();
+    case 'home':
+        $controller = new bookController();
+        $controller->showBooks();
         break;
-    case 'nueva':
-        sessionAuthMiddleware($res);
-        $controller = new TaskController($res);
+    case 'detalle':
+        $controller = new bookController($res);
         $controller->addTask();
         break;
-    case 'eliminar':
-        sessionAuthMiddleware($res);
+    /*case 'eliminar':
         $controller = new TaskController($res);
         $controller->deleteTask($params[1]);
         break;
     case 'finalizar':
-        sessionAuthMiddleware($res);
         $controller = new TaskController($res);
         $controller->finishTask($params[1]);
         break;
@@ -57,7 +50,7 @@ switch ($params[0]) {
     case 'logout':
         $controller = new AuthController();
         $controller->logout();
-    default: 
+    */default: 
         echo "404 Page Not Found"; // deberiamos llamar a un controlador que maneje esto
         break;
 }
