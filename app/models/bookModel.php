@@ -18,6 +18,13 @@ class bookModel {
         return $books;
     }
  
+    public function getBooksById($id) {    
+        $query = $this->db->prepare('SELECT * FROM libros WHERE Autor = ?');
+        $query->execute([$id]);   
+        $books = $query->fetchAll(PDO::FETCH_OBJ);
+        return $books;
+    }
+
     public function getTask($id) {    
         $query = $this->db->prepare('SELECT * FROM tareas WHERE id = ?');
         $query->execute([$id]);   

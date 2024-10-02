@@ -16,7 +16,15 @@ class bookController {
         $books = $this->model->getBooks();
 
         // mando las tareas a la vista
-        return $this->view->getBooks($books);
+        return $this->view->showBooks($books);
+    }
+
+    public function showBooksById($id) {
+        // obtengo las tareas de la DB
+        $books = $this->model->getBooksById($id);
+
+        // mando las tareas a la vista
+        return $this->view->showBooks($books);
     }
 
     public function addTask() {

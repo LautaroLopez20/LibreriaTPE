@@ -6,7 +6,7 @@ class bookView {
  
     }
 
-    public function getBooks($books) {
+    public function showBooks($books) {
         // la vista define una nueva variable con la cantida de tareas
         $count = count($books);
 

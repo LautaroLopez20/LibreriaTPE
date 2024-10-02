@@ -35,11 +35,11 @@ switch ($params[0]) {
         $controller = new authorController();
         $controller->authorList();
         break;
-   /* case 'finalizar':
-        $controller = new TaskController($res);
-        $controller->finishTask($params[1]);
+    case 'obras':
+        $controller = new bookController();
+        $controller->showBooksById($params[1]);
         break;
-    case 'showLogin':
+    /*case 'showLogin':
         $controller = new AuthController();
         $controller->showLogin();
         break;
