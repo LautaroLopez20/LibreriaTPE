@@ -28,8 +28,8 @@ switch ($params[0]) {
         $controller->showBooks();
         break;
     case 'detalle':
-        $controller = new bookController($res);
-        $controller->addTask();
+        $controller = new bookController();
+        $controller->showDetails($params[1]);
         break;
     case 'listarAutores':
         $controller = new authorController();

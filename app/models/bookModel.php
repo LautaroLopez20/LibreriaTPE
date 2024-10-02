@@ -17,6 +17,22 @@ class bookModel {
     
         return $books;
     }
+
+
+    public function getInfo($id) {    
+        $query = $this->db->prepare('SELECT * FROM libros WHERE id = ?');
+        $query->execute([$id]);   
+    
+        $data = $query->fetch(PDO::FETCH_OBJ);
+    
+        return $data;
+    }
+
+
+
+
+
+
  
     public function getTask($id) {    
         $query = $this->db->prepare('SELECT * FROM tareas WHERE id = ?');
