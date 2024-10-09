@@ -2,6 +2,7 @@
 require_once 'libs/response.php';
 require_once 'app/middlewares/sessionAuthMiddleware.php';
 require_once 'app/middlewares/verifyAuthMiddleware.php';
+require_once 'app/controllers/authController.php';
 require_once 'app/controllers/authorController.php';
 require_once 'app/controllers/bookController.php';
 
@@ -37,7 +38,7 @@ switch ($params[0]) {
         $controller = new bookController();
         $controller->showBooksById($params[1]);
         break;
-    /*case 'showLogin':
+    case 'showLogin':
         $controller = new AuthController();
         $controller->showLogin();
         break;
@@ -45,10 +46,12 @@ switch ($params[0]) {
         $controller = new AuthController();
         $controller->login();
         break;
-    case 'logout':
+    /*case 'logout':
         $controller = new AuthController();
         $controller->logout();
-    */default: 
+
+    */
+    default: 
         echo "404 Page Not Found"; // deberiamos llamar a un controlador que maneje esto
         break;
 }
