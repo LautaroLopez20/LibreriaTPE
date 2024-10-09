@@ -65,19 +65,6 @@ class bookController {
 
         header('Location: ' . BASE_URL);
     }
-
-    public function finishTask($id) {
-        $task = $this->model->getTask($id);
-
-        if (!$task) {
-            return $this->view->showError("No existe la tarea con el id=$id");
-        }
-
-        // actualiza la tarea
-        $this->model->updateTask($id);
-
-        header('Location: ' . BASE_URL);
-    }
 }
 
 

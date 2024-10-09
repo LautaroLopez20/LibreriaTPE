@@ -1,41 +1,39 @@
 <?php
+require_once 'libs/response.php';
+require_once 'app/middlewares/sessionAuthMiddleware.php';
+require_once 'app/middlewares/verifyAuthMiddleware.php';
 require_once 'app/controllers/authorController.php';
 require_once 'app/controllers/bookController.php';
 
-// base_url para redirecciones y base tag
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
+$res = new Response();
 
-$action = 'home'; // accion por defecto si no se envia ninguna
+$action = 'home';
 if (!empty( $_GET['action'])) {
     $action = $_GET['action'];
 }
 
-// tabla de ruteo
-
-// listar  -> TaskController->showTask();
-// nueva  -> TaskController->addTask();
-// eliminar/:ID  -> TaskController->deleteTask($id);
-// finalizar/:ID -> TaskController->finishTask($id);
-// ver/:ID -> TaskController->view($id); COMPLETAR
-
-// parsea la accion para separar accion real de parametros
 $params = explode('/', $action);
 
 switch ($params[0]) {
     case 'home':
+        sessionAuthMiddleware($res);
         $controller = new bookController();
         $controller->showBooks();
         break;
     case 'detalle':
+        sessionAuthMiddleware($res);
         $controller = new bookController();
         $controller->showDetails($params[1]);
         break;
     case 'listarAutores':
+        sessionAuthMiddleware($res);
         $controller = new authorController();
         $controller->authorList();
         break;
     case 'obras':
+        sessionAuthMiddleware($res);
         $controller = new bookController();
         $controller->showBooksById($params[1]);
         break;
