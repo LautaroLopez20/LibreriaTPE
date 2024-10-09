@@ -1,5 +1,5 @@
 <?php
-    function SessionAuthMiddleware() {
+    function SessionAuthMiddleware($res) {
         session_start();
         if(isset($_SESSION['ID_USER'])){
             $res->user = new stdClass();
