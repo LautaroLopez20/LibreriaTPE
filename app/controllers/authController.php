@@ -17,7 +17,7 @@ class AuthController {
 
     public function login() {
         if (!isset($_POST['name']) || empty($_POST['name'])) {
-            return $this->view->showLogin('Usuarigfdgfdgfdgo invalido');
+            return $this->view->showLogin('Usuario invalido');
         }
     
         if (!isset($_POST['password']) || empty($_POST['password'])) {
@@ -28,12 +28,11 @@ class AuthController {
         $password = $_POST['password'];
     
         $userFromDB = $this->model->getUserByName($name);
-
         if($userFromDB && password_verify($password, $userFromDB->contrasena)){
             // Guardo en la sesión el ID del usuario
             session_start();
             $_SESSION['ID_USER'] = $userFromDB->id;
-            $_SESSION['USER_NAME'] = $userFromDB->name;
+            $_SESSION['USER_NAME'] = $userFromDB->nombre;
     
             header('Location: ' . BASE_URL);
         } else {
