@@ -8,6 +8,9 @@
         </div>
         <div class="actions">
             <a href="obras/<?= $author->id ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Libros</a>
+            <?php if($this->user):?>
+                <a href="obras/<?= $author->id ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Eliminar</a>
+            <?php endif;?>
         </div>
     </li>
 <?php endforeach ?>

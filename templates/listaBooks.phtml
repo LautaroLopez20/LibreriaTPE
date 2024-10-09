@@ -10,6 +10,9 @@
             </div>
             <div class="actions">
                 <a href="detalle/<?= $book->id ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Ver Mas</a>
+                <?php if($this->user):?>
+                    <a href="detalle/<?= $book->id ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Eliminar</a>
+                <?php endif; ?>
             </div>
         </li>
     <?php endforeach ?>

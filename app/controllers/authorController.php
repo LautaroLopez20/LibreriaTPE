@@ -6,9 +6,9 @@ class AuthorController {
     private $model;
     private $view;
 
-    public function __construct() {
+    public function __construct($res) {
         $this->model = new authorModel();
-        $this->view = new authorView();
+        $this->view = new authorView($res->user);
     }
 
     function authorList() {

@@ -6,9 +6,9 @@ class bookController {
     private $model;
     private $view;
 
-    public function __construct() {
+    public function __construct($res) {
         $this->model = new bookModel();
-        $this->view = new bookView();
+        $this->view = new bookView($res->user);
     }
 
     public function showBooks() {

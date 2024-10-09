@@ -20,22 +20,22 @@ $params = explode('/', $action);
 switch ($params[0]) {
     case 'home':
         sessionAuthMiddleware($res);
-        $controller = new bookController();
+        $controller = new bookController($res);
         $controller->showBooks();
         break;
     case 'detalle':
         sessionAuthMiddleware($res);
-        $controller = new bookController();
+        $controller = new bookController($res);
         $controller->showDetails($params[1]);
         break;
     case 'listarAutores':
         sessionAuthMiddleware($res);
-        $controller = new authorController();
+        $controller = new authorController($res);
         $controller->authorList();
         break;
     case 'obras':
         sessionAuthMiddleware($res);
-        $controller = new bookController();
+        $controller = new bookController($res);
         $controller->showBooksById($params[1]);
         break;
     case 'showLogin':
