@@ -34,6 +34,11 @@
                                 <a class="nav-link" aria-current="page" href="logout">Cerrar Sesion</a>
                             </li>
                         <?php endif;?>
+                        <?php if(!$this->user):?>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="showLogin">Iniciar Sesion</a>
+                            </li>
+                        <?php endif;?>
                     </ul>
                 </div>
             </div>

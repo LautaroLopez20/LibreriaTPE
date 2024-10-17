@@ -15,4 +15,9 @@ class AuthorController {
         $authors = $this->model->getAuthors();
         return $this->view->showAuthors($authors);
     }
+
+    function deleteAuthor($id) {
+        $this->model->deleteAuthor($id);
+        header('Location: ' . BASE_URL);
+    }
 }

@@ -13,4 +13,8 @@ class AuthorModel {
         return $authors;
     }
 
+    function deleteAuthor($id) {
+        $query = $this->db->prepare("DELETE FROM autores WHERE id = ?");
+        $query->execute([$id]);
+    }
 }

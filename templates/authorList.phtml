@@ -1,15 +1,18 @@
 <?php require 'templates/layout/header.phtml' ?>
-
+<?php if($this->user):?>
+    <a href="agregarAutor" type="button" class='btn btn-danger btn-sm ml-auto'>Agregar Autor</a>
+<?php endif;?>
 <ul class="list-group">
 <?php foreach($authors as $author): ?>
     <li class="list-group-item item-task">
         <div class="label">
-            <b><?= htmlspecialchars($author->Nombre) ?></b>
+            <b><?= htmlspecialchars($author->Nombre) ?> | <?= htmlspecialchars($author->GeneroDestacado) ?></b>
         </div>
         <div class="actions">
             <a href="obras/<?= $author->id ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Libros</a>
             <?php if($this->user):?>
-                <a href="obras/<?= $author->id ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Eliminar</a>
+                <a href="eliminarAutor/<?= $author->id ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Eliminar</a>
+                <a href="editarAutor/<?= $author->id ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Editar Genero Destacado</a>
             <?php endif;?>
         </div>
     </li>
