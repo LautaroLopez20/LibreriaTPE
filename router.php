@@ -44,6 +44,18 @@ switch ($params[0]) {
         $controller = new authorController($res);
         $controller->deleteAuthor($params[1]);
         break;
+    case 'cargarAutor':
+        SessionAuthMiddleware($res);
+        VerifyAuthMiddleware($res);
+        $controller = new authorController($res);
+        $controller->addAuthor();
+        break; 
+    case 'agregarAutor':
+        SessionAuthMiddleware($res);
+        VerifyAuthMiddleware($res);
+        $controller = new authorController($res);
+        $controller->newAuthor();
+        break; 
     case 'showLogin':
         $controller = new AuthController();
         $controller->showLogin();

@@ -18,6 +18,34 @@ class AuthorController {
 
     function deleteAuthor($id) {
         $this->model->deleteAuthor($id);
-        header('Location: ' . BASE_URL);
+        header('Location: ' . BASE_URL . '/listarAutores');
+    }
+
+    function addAuthor() {
+        return $this->view->addAuthorForm();
+    }
+
+    function newAuthor() {
+        if (!isset($_POST['name']) || empty($_POST['name'])) {
+            return $this->view->showError('Falta completar el nombre');
+        }
+        if (!isset($_POST['gender']) || empty($_POST['gender'])) {
+            return $this->view->showError('Falta completar el genero destacado');
+        }
+        if (!isset($_POST['date']) || empty($_POST['date'])) {
+            return $this->view->showError('Falta completar la fecha de nacimiento');
+        }
+        if (!isset($_POST['awards']) || empty($_POST['awards'])) {
+            return $this->view->showError('Falta completar las premiaciones');
+        }
+
+        $name = $_POST['name'];
+        $gender = $_POST['gender'];
+        $date = $_POST['date'];
+        $awards = $_POST['awards'];
+
+        $this->model->insertAuthor($name,$gender,$date,$awards);
+
+        header('Location: ' . BASE_URL . '/listarAutores');
     }
 }

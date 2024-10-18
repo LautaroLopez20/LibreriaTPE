@@ -17,4 +17,9 @@ class AuthorModel {
         $query = $this->db->prepare("DELETE FROM autores WHERE id = ?");
         $query->execute([$id]);
     }
+
+    function insertAuthor($name,$gender,$date,$awards) {
+        $query = $this->db->prepare("INSERT INTO autores(Nombre, Premiaciones, GeneroDestacado, FechaNacimiento) VALUES (?, ?, ?, ?)");
+        $query->execute([$name, $awards, $gender, $date]);
+    }
 }
