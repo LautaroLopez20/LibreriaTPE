@@ -6,13 +6,13 @@
 <?php foreach($authors as $author): ?>
     <li class="list-group-item item-task">
         <div class="label">
-            <b><?= htmlspecialchars($author->Nombre) ?> | <?= htmlspecialchars($author->GeneroDestacado) ?></b>
+            <b><?= htmlspecialchars($author->Nombre) ?> | <?= htmlspecialchars($author->GeneroDestacado) ?> | Premiaciones: <?= htmlspecialchars($author->Premiaciones) ?></b>
         </div>
         <div class="actions">
             <a href="obras/<?= $author->id ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Libros</a>
             <?php if($this->user):?>
                 <a href="eliminarAutor/<?= $author->id ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Eliminar</a>
-                <a href="editarAutor/<?= $author->id ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Editar Genero Destacado</a>
+                <a href="editarAutor/<?= $author->id ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Editar</a>
             <?php endif;?>
         </div>
     </li>

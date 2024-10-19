@@ -15,7 +15,7 @@ class AuthorView {
         require 'templates/error.phtml';
     }
 
-    function addAuthorForm() {
-        require 'templates/formNewAuthor.phtml';
+    function showAuthor($author) {
+        require 'templates/formAuthorChange.phtml';
     }
 }

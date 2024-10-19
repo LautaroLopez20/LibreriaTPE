@@ -48,4 +48,25 @@ class AuthorController {
 
         header('Location: ' . BASE_URL . '/listarAutores');
     }
+
+    function authorChange($id) {
+        $author = $this->model->getAuthorById($id);
+        return $this->view->showAuthor($author);
+    }
+
+    function updateAuthor($id) {
+        if (!isset($_POST['gender']) || empty($_POST['gender'])) {
+            return $this->view->showError('Falta completar el genero');
+        }
+        if (!isset($_POST['awards']) || empty($_POST['awards'])) {
+            return $this->view->showError('Falta completar las premiaciones');
+        }
+
+        $gender = $_POST['gender'];
+        $awards = $_POST['awards'];
+
+        $this->model->updateAuthor($gender,$awards,$id);
+
+        header('Location: ' . BASE_URL . '/listarAutores');
+    }
 }

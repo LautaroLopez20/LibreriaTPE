@@ -55,6 +55,18 @@ switch ($params[0]) {
         VerifyAuthMiddleware($res);
         $controller = new authorController($res);
         $controller->newAuthor();
+        break;
+    case 'editarAutor':
+        SessionAuthMiddleware($res);
+        VerifyAuthMiddleware($res);
+        $controller = new authorController($res);
+        $controller->authorChange($params[1]);
+        break;
+    case 'actualizarAutor':
+        SessionAuthMiddleware($res);
+        VerifyAuthMiddleware($res);
+        $controller = new authorController($res);
+        $controller->updateAuthor($params[1]);
         break; 
     case 'showLogin':
         $controller = new AuthController();
