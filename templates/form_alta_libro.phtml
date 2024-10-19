@@ -1,0 +1,43 @@
+<form action="alta" method="POST" class="my-4">
+    <div class="row">
+        <div class="col-9">
+                <div class="form-group">
+                    <label>Titulo</label>
+                    <input required name="title" type="text" class="form-control">
+                </div>
+        </div>
+
+        <div class="col-9">
+            <div class="form-group">
+                <label>Genero</label>
+                <input required name="gender" type="text" class="form-control">
+            </div>
+        </div>
+                
+        <div class="col-3">
+            <div class="form-group">
+                <label>Cantidad de Paginas</label>
+                <input required name="pages" type="text" class="form-control">
+            </div>
+        </div>
+                
+        <div class="col-9">
+            <div class="form-group">
+                <label>Editorial</label>
+                <input required name="publisher" type="text" class="form-control">
+            </div>
+        </div>
+
+        <div class="col-3">
+            <div class="form-group">
+                <label>Autor</label>
+                <select required name="author" class="form-control">
+                    <?php foreach($authors as $author): ?>
+                        <option value="<?= htmlspecialchars($author->id) ?>"> <?= htmlspecialchars($author->Nombre) ?> </option>
+                    <?php endforeach ?>
+                </select>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Subir</button>
+</form>

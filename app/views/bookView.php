@@ -15,6 +15,13 @@ class bookView {
         require 'templates/listaBooks.phtml';
     }
 
+    public function showListaAutores($books, $authors) {
+        $authors = $authors;
+
+        // NOTA: el template va a poder acceder a todas las variables y constantes que tienen alcance en esta funcion
+        require 'templates/listaBooks.phtml';
+    }
+
     public function showInfo($info){
         $data = $info;
         require 'templates/mostrarBooks.phtml';
@@ -22,6 +29,11 @@ class bookView {
 
     public function showError($error) {
         require 'templates/error.phtml';
+    }
+
+    public function showForm($info, $authors){
+        $data = $info;
+        require 'templates/form_editar_libro.phtml';
     }
 
 }

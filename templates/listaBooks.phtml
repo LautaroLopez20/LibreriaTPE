@@ -3,22 +3,30 @@
 
 
 <ul class="list-group">
+    <?php if($this->user):?>
+        <?php require 'form_alta_libro.phtml' ?>
+    <?php endif;?>
+
+
+
     <?php foreach($books as $book): ?>
-        <li class="list-group-item item-task">
-            <div class="label">
-                <b><?= htmlspecialchars($book->Titulo) ?></b> 
+         <li class="list-group-item item-task">
+                <div class="label">
+                <b class="fs-5"><?= htmlspecialchars($book->Titulo) ?></b> 
+                <b class="fs-6 nav-link text-secondary"><?= htmlspecialchars($book->AutorNombre) ?></b> 
             </div>
             <div class="actions">
-                <a href="detalle/<?= $book->id ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Ver Mas</a>
+                <a href="detalle/<?= $book->id ?>" type="button" class='btn btn-success btn-sm ml-auto'>Ver Mas</a>
                 <?php if($this->user):?>
-                    <a href="detalle/<?= $book->id ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Eliminar</a>
+                    <a href="edicion/<?= $book->id ?>" type="button" class='btn btn-warning btn-sm ml-auto'>Editar</a>
+                    <a href="baja/<?= $book->id ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Eliminar</a>
                 <?php endif; ?>
             </div>
         </li>
     <?php endforeach ?>
 </ul>
 
-<p class="mt-3"><small>Mostrando <?=$count?> libros</small></p>
+<p class="mt-3"><small>Mostrando <?=count($books)?> libros</small></p>
 
 
 <?php require 'templates/layout/footer.phtml' ?>

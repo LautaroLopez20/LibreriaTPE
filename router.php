@@ -23,6 +23,30 @@ switch ($params[0]) {
         $controller = new bookController($res);
         $controller->showBooks();
         break;
+    case 'alta':
+        sessionAuthMiddleware($res);
+        VerifyAuthMiddleware($res);
+        $controller = new bookController($res);
+        $controller->addBook();
+        break;
+    case 'baja':
+        sessionAuthMiddleware($res);
+        VerifyAuthMiddleware($res);
+        $controller = new bookController($res);
+        $controller->deleteBook($params[1]);
+        break;
+    case 'edicion':
+        sessionAuthMiddleware($res);
+        VerifyAuthMiddleware($res);
+        $controller = new bookController($res);
+        $controller->updateInfo($params[1]);
+        break;
+    case 'editar':
+        sessionAuthMiddleware($res);
+        VerifyAuthMiddleware($res);
+        $controller = new bookController($res);
+        $controller->updateBook($params[1]);
+        break;
     case 'detalle':
         sessionAuthMiddleware($res);
         $controller = new bookController($res);
@@ -38,6 +62,36 @@ switch ($params[0]) {
         $controller = new bookController($res);
         $controller->showBooksById($params[1]);
         break;
+    case 'eliminarAutor':
+        SessionAuthMiddleware($res);
+        VerifyAuthMiddleware($res);
+        $controller = new authorController($res);
+        $controller->deleteAuthor($params[1]);
+        break;
+    case 'cargarAutor':
+        SessionAuthMiddleware($res);
+        VerifyAuthMiddleware($res);
+        $controller = new authorController($res);
+        $controller->addAuthor();
+        break;  
+    case 'agregarAutor':
+        SessionAuthMiddleware($res);
+        VerifyAuthMiddleware($res);
+        $controller = new authorController($res);
+        $controller->newAuthor();
+        break;
+    case 'editarAutor':
+        SessionAuthMiddleware($res);
+        VerifyAuthMiddleware($res);
+        $controller = new authorController($res);
+        $controller->authorChange($params[1]);
+        break;
+    case 'actualizarAutor':
+        SessionAuthMiddleware($res);
+        VerifyAuthMiddleware($res);
+        $controller = new authorController($res);
+        $controller->updateAuthor($params[1]);
+        break; 
     case 'showLogin':
         $controller = new AuthController();
         $controller->showLogin();

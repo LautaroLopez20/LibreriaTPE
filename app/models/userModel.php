@@ -1,10 +1,12 @@
 <?php
+require_once 'model.php';
 
-class UserModel {
+class UserModel{
     private $db;
 
     public function __construct() {
-        $this->db = new PDO('mysql:host=localhost;dbname=libreriaentrega1;charset=utf8', 'root', '');
+        $model = new Model();
+        $this->db = $model->db;
     }
 
     public function getUserByName($name) {    
