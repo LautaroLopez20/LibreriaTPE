@@ -19,7 +19,7 @@ $params = explode('/', $action);
 
 switch ($params[0]) {
     case 'home':
-        sessionAuthMiddleware($res);
+        SessionAuthMiddleware($res);
         $controller = new bookController($res);
         $controller->showBooks();
         break;
@@ -48,17 +48,17 @@ switch ($params[0]) {
         $controller->updateBook($params[1]);
         break;
     case 'detalle':
-        sessionAuthMiddleware($res);
+        SessionAuthMiddleware($res);
         $controller = new bookController($res);
         $controller->showDetails($params[1]);
         break;
     case 'listarAutores':
-        sessionAuthMiddleware($res);
+        SessionAuthMiddleware($res);
         $controller = new authorController($res);
         $controller->authorList();
         break;
     case 'obras':
-        sessionAuthMiddleware($res);
+        SessionAuthMiddleware($res);
         $controller = new bookController($res);
         $controller->showBooksById($params[1]);
         break;
@@ -72,8 +72,8 @@ switch ($params[0]) {
         SessionAuthMiddleware($res);
         VerifyAuthMiddleware($res);
         $controller = new authorController($res);
-        $controller->addAuthor();
-        break;  
+        $controller->addAuthor(); 
+        break; 
     case 'agregarAutor':
         SessionAuthMiddleware($res);
         VerifyAuthMiddleware($res);
