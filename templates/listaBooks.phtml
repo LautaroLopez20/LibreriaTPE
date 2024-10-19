@@ -1,20 +1,16 @@
 <?php require 'templates/layout/header.phtml' ?>
 
-
-
 <ul class="list-group">
     <?php if($this->user):?>
         <?php require 'form_alta_libro.phtml' ?>
     <?php endif;?>
 
-
-
     <?php foreach($books as $book): ?>
          <li class="list-group-item item-task">
                 <div class="label">
-                <b class="fs-5"><?= htmlspecialchars($book->Titulo) ?></b> 
-                <b class="fs-6 nav-link text-secondary"><?= htmlspecialchars($book->AutorNombre) ?></b> 
-            </div>
+                    <b class="fs-5"><?= htmlspecialchars($book->Titulo) ?></b> 
+                    <b class="fs-6 nav-link text-secondary"><?= htmlspecialchars($book->AutorNombre) ?></b> 
+                </div>
             <div class="actions">
                 <a href="detalle/<?= $book->id ?>" type="button" class='btn btn-success btn-sm ml-auto'>Ver Mas</a>
                 <?php if($this->user):?>
@@ -27,6 +23,5 @@
 </ul>
 
 <p class="mt-3"><small>Mostrando <?=count($books)?> libros</small></p>
-
 
 <?php require 'templates/layout/footer.phtml' ?>

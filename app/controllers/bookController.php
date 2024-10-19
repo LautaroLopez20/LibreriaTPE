@@ -12,13 +12,10 @@ class bookController {
     }
 
     public function showBooks() {
-        // obtengo las tareas de la DB
         $books = $this->model->getBooks();
-
         $authorModel = new authorModel(); 
         $authors = $authorModel->getAuthors();
 
-        // mando las tareas a la vista
         return $this->view->showListaAutores($books, $authors);
     }
 
@@ -28,10 +25,7 @@ class bookController {
     }
 
     public function showBooksById($id) {
-        // obtengo las tareas de la DB
         $books = $this->model->getBooksById($id);
-
-        // mando las tareas a la vista
         return $this->view->showBooks($books);
     }
 
@@ -82,7 +76,6 @@ class bookController {
 
     public function updateInfo($id){
         $info = $this->model->getInfo($id);
-
         $authorModel = new authorModel(); 
         $authors = $authorModel->getAuthors();
 

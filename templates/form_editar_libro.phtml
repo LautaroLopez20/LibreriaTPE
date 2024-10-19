@@ -8,43 +8,32 @@
                     <input required name="title" type="text" class="form-control" value="<?=htmlspecialchars($data->Titulo) ?>">
                 </div>
         </div>
-
         <div class="col-9">
             <div class="form-group">
                 <label>Genero</label>
                 <input required name="gender" type="text" class="form-control" value="<?=htmlspecialchars($data->Genero) ?>">
             </div>
-        </div>
-                
+        </div>             
         <div class="col-3">
             <div class="form-group">
                 <label>Cantidad de Paginas</label>
                 <input required name="pages" type="text" class="form-control" value="<?=htmlspecialchars($data->CantidadPaginas) ?>">
             </div>
-        </div>
-                
+        </div>              
         <div class="col-9">
             <div class="form-group">
                 <label>Editorial</label>
                 <input required name="publisher" type="text" class="form-control" value="<?=htmlspecialchars($data->Editorial) ?>">
             </div>
         </div>
-
         <div class="col-3">
             <div class="form-group">
                 <label>Autor</label>
-                
-                
                 <select required name="author" class="form-control">
                     <?php foreach($authors as $author): ?>
                         <option value="<?=$author->id?>" <?= ($author->id == $data->Autor) ? 'selected' : '' ?>> <?=htmlspecialchars($author->Nombre) ?> </option>
                     <?php endforeach ?>
                 </select>
-
-
-
-
-
             </div>
         </div>
     </div>

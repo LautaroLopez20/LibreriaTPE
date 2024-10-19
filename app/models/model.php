@@ -9,7 +9,6 @@
             $this->_deploy();
         }
 
-
         private function _deploy() {
             $query = $this->db->query('SHOW TABLES');
             $tables = $query->fetchAll();

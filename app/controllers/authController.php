@@ -19,17 +19,16 @@ class AuthController {
         if (!isset($_POST['name']) || empty($_POST['name'])) {
             return $this->view->showLogin('Usuario invalido');
         }
-    
+
         if (!isset($_POST['password']) || empty($_POST['password'])) {
             return $this->view->showLogin('Falta completar la contraseña');
         }
     
         $name = $_POST['name'];
         $password = $_POST['password'];
-    
         $userFromDB = $this->model->getUserByName($name);
+        
         if($userFromDB && password_verify($password, $userFromDB->contrasena)){
-            // Guardo en la sesión el ID del usuario
             session_start();
             $_SESSION['ID_USER'] = $userFromDB->id;
             $_SESSION['USER_NAME'] = $userFromDB->nombre;
