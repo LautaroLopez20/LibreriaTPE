@@ -59,8 +59,8 @@ switch ($params[0]) {
         break;
     case 'obras':
         SessionAuthMiddleware($res);
-        $controller = new bookController($res);
-        $controller->showBooksById($params[1]);
+        $controller = new authorController($res);
+        $controller->showBooksByAutor($params[1]);
         break;
     case 'eliminarAutor':
         SessionAuthMiddleware($res);

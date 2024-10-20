@@ -7,13 +7,7 @@ class bookView {
         $this->user = $user;
     }
 
-    public function showBooks($books) {
-        $count = count($books);
-
-        require 'templates/listingBooks.phtml';
-    }
-
-    public function showBookList($books, $authors) {
+    public function showBooks($books, $authors) {
         $authors = $authors;
 
         require 'templates/listingBooks.phtml';

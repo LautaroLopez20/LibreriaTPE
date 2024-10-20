@@ -18,4 +18,10 @@ class AuthorView {
     function showAuthor($author) {
         require 'templates/formAuthorChange.phtml';
     }
+
+    public function showBookList($books, $authors) {
+        $authors = $authors;
+
+        require 'templates/listBookById.phtml';
+    }
 }

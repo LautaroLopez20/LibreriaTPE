@@ -8,6 +8,15 @@ class bookModel {
         $model = new Model();
         $this->db = $model->db;
     }
+
+    public function getBooksByAuthor($id) {
+        $query = $this->db->prepare('SELECT libros.*, autores.Nombre AS AutorNombre FROM libros JOIN autores ON libros.Autor = autores.id WHERE autores.id = ?');
+        $query->execute([$id]);
+    
+        $books = $query->fetchAll(PDO::FETCH_OBJ);
+    
+        return $books;
+    }
  
     public function getBooks() {
         $query = $this->db->prepare('SELECT libros.*, autores.Nombre AS AutorNombre FROM libros JOIN autores ON libros.Autor = autores.id');
@@ -25,15 +34,6 @@ class bookModel {
         $info = $query->fetch(PDO::FETCH_OBJ);
     
         return $info;
-    }
-
-    public function getBooksById($id) {    
-        $query = $this->db->prepare('SELECT * FROM libros WHERE Autor = ?');
-        $query->execute([$id]); 
-
-        $books = $query->fetchAll(PDO::FETCH_OBJ);
-        
-        return $books;
     }
 
     public function getBook($id) {    

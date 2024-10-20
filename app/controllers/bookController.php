@@ -16,17 +16,12 @@ class bookController {
         $authorModel = new authorModel(); 
         $authors = $authorModel->getAuthors();
 
-        return $this->view->showBookList($books, $authors);
+        return $this->view->showBooks($books, $authors);
     }
 
     public function showDetails($id){
         $info = $this->model->getInfo($id);
         return $this->view->showInfo($info);
-    }
-
-    public function showBooksById($id) {
-        $books = $this->model->getBooksById($id);
-        return $this->view->showBooks($books);
     }
 
     public function addBook() {

@@ -69,4 +69,12 @@ class AuthorController {
 
         header('Location: ' . BASE_URL . '/listarAutores');
     }
+
+    function showBooksByAutor($id) {
+        $author = $this->model->getAuthorById($id);
+        $bookModel = new bookModel(); 
+        $books = $bookModel->getBooksByAuthor($id);
+
+        return $this->view->showBookList($books, $author);
+    }
 }
