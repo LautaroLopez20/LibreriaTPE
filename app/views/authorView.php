@@ -24,4 +24,8 @@ class AuthorView {
 
         require 'templates/listBookById.phtml';
     }
+
+    function addAuthorForm() {
+        require 'templates/formNewAuthor.phtml';
+    }
 }
