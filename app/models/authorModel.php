@@ -1,13 +1,7 @@
 <?php
 require_once 'model.php';
 
-class AuthorModel {
-    private $db;
-    
-    function __construct() {
-        $model = new Model();
-        $this->db = $model->db;
-    }
+class AuthorModel extends model{
 
     public function getAuthors() {
         $query = $this->db->prepare('SELECT * FROM autores');

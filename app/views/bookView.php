@@ -10,21 +10,21 @@ class bookView {
     public function showBooks($books, $authors) {
         $authors = $authors;
 
-        require 'templates/listingBooks.phtml';
+        require './app/templates/listingBooks.phtml';
     }
 
     public function showInfo($info){
         $data = $info;
-        require 'templates/detailsOfBook.phtml';
+        require './app/templates/detailsOfBook.phtml';
     }
 
     public function showError($error) {
-        require 'templates/error.phtml';
+        require './app/templates/error.phtml';
     }
 
     public function showForm($info, $authors){
         $data = $info;
-        require 'templates/formEditBook.phtml';
+        require './app/templates/formEditBook.phtml';
     }
 
 }

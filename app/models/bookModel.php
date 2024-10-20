@@ -1,13 +1,7 @@
 <?php
 require_once 'model.php';
 
-class bookModel {
-    private $db;
-
-    public function __construct() {
-        $model = new Model();
-        $this->db = $model->db;
-    }
+class bookModel extends model{
 
     public function getBooksByAuthor($id) {
         $query = $this->db->prepare('SELECT libros.*, autores.Nombre AS AutorNombre FROM libros JOIN autores ON libros.Autor = autores.id WHERE autores.id = ?');

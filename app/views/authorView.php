@@ -8,24 +8,24 @@ class AuthorView {
 
     function showAuthors($authors) {
         $count = count($authors);
-        require 'templates/authorList.phtml';
+        require './app/templates/authorList.phtml';
     }
 
     public function showError($error) {
-        require 'templates/error.phtml';
+        require './app/templates/error.phtml';
     }
 
     function showAuthor($author) {
-        require 'templates/formAuthorChange.phtml';
+        require './app/templates/formAuthorChange.phtml';
     }
 
     public function showBookList($books, $authors) {
         $authors = $authors;
 
-        require 'templates/listBookById.phtml';
+        require './app/templates/listBookById.phtml';
     }
 
     function addAuthorForm() {
-        require 'templates/formNewAuthor.phtml';
+        require './app/templates/formNewAuthor.phtml';
     }
 }

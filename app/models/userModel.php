@@ -1,13 +1,7 @@
 <?php
 require_once 'model.php';
 
-class UserModel{
-    private $db;
-
-    public function __construct() {
-        $model = new Model();
-        $this->db = $model->db;
-    }
+class UserModel extends model{
 
     public function getUserByName($name) {    
         $query = $this->db->prepare("SELECT * FROM usuarios WHERE nombre = ?");
