@@ -10,18 +10,18 @@ class bookView {
     public function showBooks($books) {
         $count = count($books);
 
-        require 'templates/listaBooks.phtml';
+        require 'templates/listingBooks.phtml';
     }
 
-    public function showListaAutores($books, $authors) {
+    public function showBookList($books, $authors) {
         $authors = $authors;
 
-        require 'templates/listaBooks.phtml';
+        require 'templates/listingBooks.phtml';
     }
 
     public function showInfo($info){
         $data = $info;
-        require 'templates/mostrarBooks.phtml';
+        require 'templates/detailsOfBook.phtml';
     }
 
     public function showError($error) {
@@ -30,7 +30,7 @@ class bookView {
 
     public function showForm($info, $authors){
         $data = $info;
-        require 'templates/form_editar_libro.phtml';
+        require 'templates/formEditBook.phtml';
     }
 
 }

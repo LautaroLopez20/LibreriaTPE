@@ -23,31 +23,31 @@ switch ($params[0]) {
         $controller = new bookController($res);
         $controller->showBooks();
         break;
-    case 'alta':
+    case 'altaBook':
         sessionAuthMiddleware($res);
         VerifyAuthMiddleware($res);
         $controller = new bookController($res);
         $controller->addBook();
         break;
-    case 'baja':
+    case 'bajaBook':
         sessionAuthMiddleware($res);
         VerifyAuthMiddleware($res);
         $controller = new bookController($res);
         $controller->deleteBook($params[1]);
         break;
-    case 'edicion':
+    case 'editarBook':
         sessionAuthMiddleware($res);
         VerifyAuthMiddleware($res);
         $controller = new bookController($res);
         $controller->updateInfo($params[1]);
         break;
-    case 'editar':
+    case 'actualizarBook':
         sessionAuthMiddleware($res);
         VerifyAuthMiddleware($res);
         $controller = new bookController($res);
         $controller->updateBook($params[1]);
         break;
-    case 'detalle':
+    case 'verMasBook':
         SessionAuthMiddleware($res);
         $controller = new bookController($res);
         $controller->showDetails($params[1]);

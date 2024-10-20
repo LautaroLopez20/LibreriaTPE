@@ -2,7 +2,7 @@
 
 <ul class="list-group">
     <?php if($this->user):?>
-        <?php require 'form_alta_libro.phtml' ?>
+        <?php require 'formAltaBook.phtml' ?>
     <?php endif;?>
 
     <?php foreach($books as $book): ?>
@@ -12,10 +12,10 @@
                     <b class="fs-6 nav-link text-secondary"><?= htmlspecialchars($book->AutorNombre) ?></b> 
                 </div>
             <div class="actions">
-                <a href="detalle/<?= $book->id ?>" type="button" class='btn btn-success btn-sm ml-auto'>Ver Mas</a>
+                <a href="verMasBook/<?= $book->id ?>" type="button" class='btn btn-success btn-sm ml-auto'>Ver Mas</a>
                 <?php if($this->user):?>
-                    <a href="edicion/<?= $book->id ?>" type="button" class='btn btn-warning btn-sm ml-auto'>Editar</a>
-                    <a href="baja/<?= $book->id ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Eliminar</a>
+                    <a href="editarBook/<?= $book->id ?>" type="button" class='btn btn-warning btn-sm ml-auto'>Editar</a>
+                    <a href="bajaBook/<?= $book->id ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Eliminar</a>
                 <?php endif; ?>
             </div>
         </li>

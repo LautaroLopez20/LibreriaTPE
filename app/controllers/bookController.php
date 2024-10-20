@@ -16,7 +16,7 @@ class bookController {
         $authorModel = new authorModel(); 
         $authors = $authorModel->getAuthors();
 
-        return $this->view->showListaAutores($books, $authors);
+        return $this->view->showBookList($books, $authors);
     }
 
     public function showDetails($id){
